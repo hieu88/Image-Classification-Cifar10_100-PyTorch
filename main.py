@@ -65,7 +65,7 @@ if __name__ == '__main__':
         #Test
         test_loss,test_acc = test(test_loader,model,criterion,device)
         test_accuracies["Epoch_"+str(epoch+1)] = test_acc
-        test_losses["Epoch_"+str(epoch+1)] = test_losses
+        test_losses["Epoch_"+str(epoch+1)] = test_loss
 
         if (epoch+1) % Config.EVAL_TRAIN_STEP.value == 0 or epoch == 0:
             loss_acc_checkpoints = {
