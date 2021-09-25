@@ -15,6 +15,7 @@ class Config(Enum):
         "vgg11",
         "vgg13",
         "vgg16",
+        "vgg19",
         "resnet18",
         "resnet34",
         "resnet50",

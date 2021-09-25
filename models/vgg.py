@@ -38,11 +38,10 @@ class VGG(nn.Module):
                 feature += [nn.MaxPool2d(kernel_size=2,stride=2)]
             
             else:
-                feature += [nn.Conv2d(in_c,cf,kernel_size=3,stride=1,padding=1,bias=False)]
+                feature += [nn.Conv2d(in_c,cf,kernel_size=3,stride=1,padding=1)]
                 feature += [nn.BatchNorm2d(cf)]
                 feature += [nn.ReLU(inplace=True)]
                 in_c = cf
-        
         return nn.Sequential(*feature)
 
 def VGG11(inp_height,inp_width):
@@ -55,7 +54,7 @@ def VGG16(inp_height,inp_width):
     return VGG(inp_height = inp_height,inp_width = inp_width,cfg = config['vgg16'])
 
 def VGG19(inp_height,inp_width):
-    return VGG19(inp_height = inp_height,inp_width = inp_width,cfg = config['vgg19'])
+    return VGG(inp_height = inp_height,inp_width = inp_width,cfg = config['vgg19'])
 
 # if __name__ == '__main__':
 #     model = VGG11(64,64)
